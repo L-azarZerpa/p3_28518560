@@ -8,8 +8,8 @@ var router = express.Router();
 require('dotenv').config()
 
 router.get('/', function(req, res, next) {
-  db.insert('camisa', 2, 23, 'camisa de bebe', 'baby', 'talla 2', 1);
-  db.insertCategoria("camisa",  1);
+  db.insert('blue label', 199, 1223, 'elixir', 'jonny walker', '2 grados', 1);
+  db.insertCategoria("whisky",  1);
   db.insertImagen(1, "url", 1);
   res.render('index', { title: 'Eleazar Zerpa, 28518560, seccion 2' });
   
