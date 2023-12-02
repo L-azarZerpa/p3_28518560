@@ -7,19 +7,46 @@ var router = express.Router();
 
 require('dotenv').config()
 
+
+
+
 router.get('/', function(req, res, next) {
-  db.insert('blue label', 199, 1223, 'elixir', 'jonny walker', '2 grados', 1);
-  db.insertCategoria("whisky",  1);
-  db.insertImagen(1, "url", 1);
-  res.render('index', { title: 'Eleazar Zerpa, 28518560, seccion 2' });
-  
+  db.selectImagesAndProducts(function (productosConImagenes) {
+    db.selectCategoria(function (categorias) {
+      res.render('index', { title: 'Registros del formulario', productosConImagenes: productosConImagenes, categorias: categorias });
+    });
+  });
 });
+
+ 
+
+
+
+
+
+
+
+ 
+  
+
 
 router.post('/admin/agregarImagenes', function(req, res, next) {
   let url = req.body.url
   let producto_id = req.body.producto_id
   let destacado = req.body.destacado
-  db.insertImagen(producto_id, url, destacado) 
+  let id = req.body.id;
+  if (id) {
+    if (destacado == "si" || destacado == "no") {
+    db.updateImg(id, producto_id, url, destacado); // call update function
+  }
+  } else {
+    if (destacado == "si" || destacado == "no") {
+      db.insertImagen(producto_id, url, destacado) // call insert function
+    }
+
+
+    
+  }
   res.redirect('/imagenes');
 });
 
@@ -42,12 +69,14 @@ router.post('/admin/agregar', function(req, res, next) {
   let description = req.body.description;
   let brand  = req.body.brand;
   let size  = req.body.size;
-  
+  let categoria_id = req.body.categoria_id
+
+
   let id = req.body.id; // new line to get id from request body
   if (id) {
-    db.update(id, name, code, price, description,brand, size); // call update function
+    db.update(id, name, code, price, description,brand, size,categoria_id); // call update function
   } else {
-    db.insert(name, code, price, description,brand, size); // call insert function
+    db.insert(name, code, price, description,brand, size,categoria_id); // call insert function
   }
   res.redirect('/admin');
 });
@@ -206,6 +235,40 @@ router.get('/admin/:id/actualizar',(req,res,next)=>{
   });
 });
 
+
+router.get('/admin/:id/delete',(req,res,next)=>{
+  if(req.isAuthenticated()) return next();
+
+  res.redirect("/login")
+},(req, res) => {   
+  let iddp = req.params.id
+  console.log(iddp);
+  db.delete(iddp);
+  db.select(function (productos) {
+    db.selectCategoria(function (categorias) {
+      db.selectImagen(function (imagenes) {
+        res.render('admin', { title: 'Registros del formulario', productos: productos, categorias: categorias, imagenes: imagenes });
+      });
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 router.get('/admin/:id/actualizarCat',(req,res,next)=>{
   if(req.isAuthenticated()) return next();
 
@@ -222,13 +285,73 @@ router.get('/admin/:id/actualizarCat',(req,res,next)=>{
   });
 });
 
-router.get('/admin/actualizarImg',(req,res,next)=>{
+
+router.get('/categoria/:id/delete',(req,res,next)=>{
   if(req.isAuthenticated()) return next();
 
   res.redirect("/login")
 },(req, res) => {   
-  res.render('actualizarImg', { title: 'Registros del formulario'});
+  let iddc = req.params.id
+  console.log(iddc);
+  db.delete2(iddc);
+  let iddx = req.params.id
+  console.log(iddx);
+  db.delete4(iddx);
+  db.select(function (productos) {
+    db.selectCategoria(function (categorias) {
+      db.selectImagen(function (imagenes) {
+        res.render('categoria', { title: 'Registros del formulario', productos: productos, categorias: categorias, imagenes: imagenes });
+      });
+    });
+  });
 });
+
+
+
+
+
+
+
+
+
+
+router.get('/admin/:id/actualizarImg',(req,res,next)=>{
+  if(req.isAuthenticated()) return next();
+
+  res.redirect("/login")
+},(req, res) => {   
+  let idImg = req.params.id
+  console.log(idImg);
+  db.select(function (productos) {
+    db.selectCategoria(function (categorias) {
+      db.selectImagen2(idImg,function (imagenes) {
+        res.render('actualizarImg', { title: 'Registros del formulario', productos: productos, categorias: categorias, imagenes: imagenes });
+      });
+    });
+  });
+});
+
+
+router.get('/imagenes/:id/delete',(req,res,next)=>{
+  if(req.isAuthenticated()) return next();
+
+  res.redirect("/login")
+},(req, res) => {   
+  let iddi = req.params.id
+  console.log(iddi);
+  db.delete3(iddi);
+  db.select(function (productos) {
+    db.selectCategoria(function (categorias) {
+      db.selectImagen(function (imagenes) {
+        res.render('imagenes', { title: 'Registros del formulario', productos: productos, categorias: categorias, imagenes: imagenes });
+      });
+    });
+  });
+});
+
+
+
+
 
 
 
@@ -259,6 +382,31 @@ router.get('/imagenes',(req,res,next)=>{
     });
   });
 });
+
+
+
+
+router.get('/producto/:id',(req,res,next)=>{
+  let idImg = req.params.id
+  console.log(idImg);
+  db.selectImagesAndProducts3(idImg,function  (productosConImagenes3) {
+  db.selectImagesAndProducts2(idImg,function 
+  (productosConImagenes2)  {
+    db.selectCategoria(function (categorias) {
+      res.render('producto', { title: 'Registros del formulario',productosConImagenes3:productosConImagenes3, productosConImagenes2: productosConImagenes2, categorias: categorias });
+    });
+     });
+  })
+    
+    });
+    
+   
+
+
+
+
+
+
 
 
 module.exports = router;  

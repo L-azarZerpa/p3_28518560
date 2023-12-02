@@ -18,23 +18,27 @@
     <button type="submit" class="list">agregar categoria</button>
   </form>
   <br>
-  <table>
+  <table class="u">
     <thead>
       <tr>
-        <th>id</th>
-        <th>Nombre</th>
-        <th>editar</th>
+        <th class="o">id</th>
+        <th class="o">Nombre</th>
+        <th class="o">editar</th>
+        <th class="o">borrar</th>
       </tr>
     </thead>
     <tbody>
       <% for (var i=0; i<categorias.length; i++) { %>
         
         <tr>
-          <td><%= categorias[i].idCategoria %></td>
-          <td><%= categorias[i].nameCategoria %></td>
+          <td class="i"><%= categorias[i].idCategoria %></td>
+          <td class="i"><%= categorias[i].nameCategoria %></td>
           <td>
           <a href="/admin/<%= categorias[i].idCategoria %>/actualizarCat" class="add">Editar</a>
-        </td>
+          </td>
+          <td>
+          <a href="/categoria/<%= categorias[i].idCategoria %>/delete" class="add">borrar</a>
+          </td>
         </tr>
       <% } %>
     </tbody>
