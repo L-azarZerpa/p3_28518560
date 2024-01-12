@@ -35,7 +35,7 @@ let db = new sqlite3.Database('sqlite3', (err) => {
 
 
 
-
+//pepe
  
 module.exports = {
     insert: function (name, code, price, description, brand, size, categoria_id) {
