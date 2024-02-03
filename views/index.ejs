@@ -1,5 +1,6 @@
 <%- include('template/cabezera.ejs')  %>
   <body>
+<<<<<<< HEAD
     
     <%- include('template/header2.ejs')  %>
   <br>  
@@ -59,6 +60,13 @@
 
   <input type="hidden" id="selected-stars" name="selectedStars" value="0">
 </form>
+=======
+    <%- include('template/header.ejs')  %>
+  <br>  
+  
+<!--  -->
+<input id="caja" class="modo" type="button" value="cambiar modo">
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
 <br>
   <div class="pc" id="pc">
     <% for (var i=0; i<productosConImagenes.length; i++) { %>
@@ -67,6 +75,7 @@
       <a href="/producto/<%= productosConImagenes[i].id %>">
         <img src="<%= productosConImagenes[i].url %>" alt="<%= productosConImagenes[i].name %>"></td>
       </a>
+<<<<<<< HEAD
       <div class="rating">
         <div class="rating">
           <% for (var j=0; j<productosConImagenes[i].rating ; j++) { %>
@@ -80,6 +89,8 @@
         </div>
 
     </div>
+=======
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
       <h1><%= productosConImagenes[i].price %> $</h1>
       <h6><%= productosConImagenes[i].code %></h6>
       <h6><%= productosConImagenes[i].description %></h6>
@@ -126,7 +137,11 @@
 </div>
 <script src="pepe.js"></script>
 <script src="script.js"></script>
+<<<<<<< HEAD
 <script src="script2.js"></script>   
 <script src="estrellas.js"></script>
+=======
+<script src="script2.js"></script>    
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
   </body>
 </html>

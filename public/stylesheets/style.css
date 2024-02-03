@@ -236,7 +236,10 @@ body {
     cursor: pointer;
     transition: all ease .8s;
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
   .caja{
     background: green;
   }

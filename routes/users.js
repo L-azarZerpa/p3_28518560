@@ -2,7 +2,10 @@ var express = require('express');
 var router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+<<<<<<< HEAD
 const nodemailer = require('nodemailer');
+=======
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
 const { registerUser, getUserByEmail } = require('../configuration/consultasTask3/usuario.js');
 
 const fetch = require('node-fetch');
@@ -42,6 +45,7 @@ router.post('/registro', async function (req, res) {
       registerUser(username, email, hash);
 
       const token = jwt.sign({ username, email }, process.env.JWT_SECRETO, { expiresIn: '1h' });
+<<<<<<< HEAD
       
     
     
@@ -87,6 +91,8 @@ router.post('/registro', async function (req, res) {
 
 
       
+=======
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
       console.log(token);
       res.json({ message: 'User registered successfully', token });
     } catch (error) {

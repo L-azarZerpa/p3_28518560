@@ -11,6 +11,7 @@ function registerUser(username, email, password) {
   });
 }
 
+<<<<<<< HEAD
 function updatePassword(password,id)  {
   const sql = `UPDATE users SET password = ? WHERE id = ?`;
 
@@ -22,6 +23,8 @@ function updatePassword(password,id)  {
   });
 }
 
+=======
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
 function getUserByEmail(email, callback) {
   const sql = `SELECT * FROM users WHERE email = ?`;
 
@@ -34,6 +37,7 @@ function getUserByEmail(email, callback) {
   });
 }
 
+<<<<<<< HEAD
 function getUserById(id, callback) {
   const sql = `SELECT * FROM users WHERE id = ?`;
 
@@ -46,6 +50,8 @@ function getUserById(id, callback) {
   });
 }
 
+=======
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
 const selectEmail = (callback) => {
   let sql = "SELECT * FROM users";
   db.all(sql, [], (err, rows) => {
@@ -59,8 +65,12 @@ const selectEmail = (callback) => {
 
 module.exports = {
   registerUser,
+<<<<<<< HEAD
   updatePassword,
   getUserByEmail,
   getUserById,
+=======
+  getUserByEmail,
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
   selectEmail
 };

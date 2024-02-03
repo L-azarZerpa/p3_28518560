@@ -20,7 +20,10 @@
     "jsonwebtoken": "^9.0.2",
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.6",
+<<<<<<< HEAD
     "nodemailer": "^6.9.8",
+=======
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "sqlite3": "^5.1.6"

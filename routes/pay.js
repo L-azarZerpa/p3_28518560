@@ -4,7 +4,10 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRETO, API_KEY, API_URL } = process.env;
 const axios = require('axios');
 const ip = require('ip');
+<<<<<<< HEAD
 const nodemailer = require('nodemailer');
+=======
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
 
 const { getUserByEmail } = require('../configuration/consultasTask3/usuario.js');
 
@@ -68,6 +71,7 @@ router.post('/', (req, res) => {
                             if (err) {
                                 console.error('Error al guardar la compra:', err);
                                 return;
+<<<<<<< HEAD
                             }try {
     
     
@@ -102,6 +106,9 @@ router.post('/', (req, res) => {
       } catch (error) {
       console.error(error);
       }
+=======
+                            }
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
 
                             console.log('Compra guardada con ID:', lastID);
                         });

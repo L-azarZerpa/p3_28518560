@@ -51,6 +51,7 @@ const selectImagen2 = (idImg, callback) => {
     });
 }
 
+<<<<<<< HEAD
 const selectratings2  = ( callback) => {
     db.all('SELECT * FROM ratings ', [], (err, rows) => {
         if (err) {
@@ -77,14 +78,20 @@ const selectratings3  = (product_id, callback) => {
     });
 }
 
+=======
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
 module.exports = {
     select,
     selectCategoria,
     selectCategoria2,
     select2,
     selectImagen,
+<<<<<<< HEAD
     selectImagen2,
     selectratings,
     selectratings2,
     selectratings3
+=======
+    selectImagen2
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
 }

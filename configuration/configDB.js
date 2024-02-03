@@ -18,10 +18,15 @@ const db = new sqlite3.Database('./configuration/sqlite3.db', (err) => {
     // Create the 'users' table
     db.run("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL)");
 
+<<<<<<< HEAD
     /*db.run("DROP TABLE IF EXISTS ratings");*/
    
     db.run('CREATE TABLE IF NOT EXISTS ratings (id INTEGER PRIMARY KEY, user_id TEXT, product_id TEXT, rating INTEGER)');
      
+=======
+    /* db.run("DROP TABLE IF EXISTS compras"); */
+
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
     // Create the 'compras' table
     db.run(`CREATE TABLE IF NOT EXISTS compras (
         id INTEGER PRIMARY KEY AUTOINCREMENT, 

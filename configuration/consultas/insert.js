@@ -27,6 +27,7 @@ const insertImagen = (producto_id, url, destacado) => {
     });
 }
 
+<<<<<<< HEAD
 const insertRating = (token, idProducto, value) => {
     db.run('INSERT INTO ratings (user_id, product_id, rating) VALUES (?, ?, ?)', [token, idProducto, value], function (err) {
         if (err) {
@@ -41,4 +42,10 @@ module.exports = {
     insertCategoria,
     insertImagen,
     insertRating
+=======
+module.exports = {
+    insert,
+    insertCategoria,
+    insertImagen
+>>>>>>> 09b87dd2cd1815dc56f7c38c7b46fb722040e31c
 }
