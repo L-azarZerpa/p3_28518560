@@ -236,6 +236,7 @@ body {
     cursor: pointer;
     transition: all ease .8s;
   }
+  
   .caja{
     background: green;
   }
