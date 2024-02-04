@@ -64,9 +64,9 @@ router.post('/registro', async function (req, res) {
           }
       const mensaje = {
         from : process.env.USER,
-        to : username,
+        to : email,
         subject : 'formulario programacion2',
-        text : ' bienvenido usuario: ' + username 
+        text : ' bienvenido usuario: ' + email 
       }
       const transport = nodemailer.createTransport(config);
       const info = await transport.sendMail(mensaje);
